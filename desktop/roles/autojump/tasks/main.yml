@@ -1,0 +1,18 @@
+---
+- name: clone repo
+  become: yes
+  git:
+    repo: git://github.com/joelthelion/autojump.git
+    dest: /opt/autojump
+
+- name: install
+  command:  ./install.py
+  args:
+    chdir: /opt/autojump
+    creates: /home/{{ ansible_user_id }}/.autojump
+
+- name: add to bashrc
+  lineinfile:
+    dest: ~/.bashrc.d/autojump.bashrc
+    create: yes
+    line: "[[ -s /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.sh ]] && source /home/{{ ansible_user_id }}/.autojump/etc/profile.d/autojump.sh"
