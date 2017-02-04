@@ -1,0 +1,37 @@
+---
+- name: allow https repositories
+  become: yes
+  apt:
+    name:
+      - apt-transport-https
+      - ca-certificates
+      - software-properties-common
+
+- name: add apt repository
+  become: yes
+  apt_repository:
+    repo: deb https://apt.dockerproject.org/repo/ debian-{{ ansible_lsb.codename }} main
+
+- name: add apt key
+  become: yes
+  apt_key:
+    url: https://yum.dockerproject.org/gpg
+
+- name: install
+  become: yes
+  apt:
+    name: docker-engine
+    state: latest
+    update_cache: yes
+
+- name: create docker group
+  become: yes
+  group:
+    name: docker
+
+- name: add user to docker group
+  become: yes
+  user:
+    name: "{{ ansible_user_id }}"
+    append: yes
+    groups: docker

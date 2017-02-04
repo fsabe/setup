@@ -1,17 +1,17 @@
 ---
 - name: add apt repository
-  become: true
+  become: yes
   apt_repository:
     repo: deb http://dl.google.com/linux/chrome/deb/ stable main
 
 - name: add apt key
-  become: true
+  become: yes
   apt_key:
     url: https://dl.google.com/linux/linux_signing_key.pub
 
 - name: install
-  become: true
+  become: yes
   apt:
     name: google-chrome-stable
     state: latest
-    update_cache: true
+    update_cache: yes

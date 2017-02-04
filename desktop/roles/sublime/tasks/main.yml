@@ -1,5 +1,5 @@
 ---
 - name: install
-  become: true
+  become: yes
   apt:
     deb: https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
