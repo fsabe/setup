@@ -1,0 +1,11 @@
+---
+- name: get lein
+  get_url:
+    url: https://raw.githubusercontent.com/technomancy/leiningen/stable/bin/lein
+    dest: /home/{{ ansible_user_id }}/bin/lein
+    force: yes
+
+- name: set to executable
+  file:
+    dest: /home/{{ ansible_user_id }}/bin/lein
+    mode: a+x
