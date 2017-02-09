@@ -1,5 +1,9 @@
 ---
 - hosts: localhost
+  tasks:
+    - name: install vim
+      become: yes
+      apt: name=vim
   roles:
     - git
     - chrome
