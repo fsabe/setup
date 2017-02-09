@@ -1,6 +1,7 @@
 ---
 - hosts: localhost
   roles:
+    - git
     - chrome
     - sublime
     - docker

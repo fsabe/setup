@@ -1,0 +1,12 @@
+[user]
+	name = Flavio Schiavini Abe
+	email = flaviosabe@gmail.com
+[alias]
+	br = branch
+	ci = commit
+	co = checkout
+	st = status
+[core]
+	editor = vi
+[push]
+	default = simple
