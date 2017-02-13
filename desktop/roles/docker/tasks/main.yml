@@ -35,3 +35,15 @@
     name: "{{ ansible_user_id }}"
     append: yes
     groups: docker
+
+- name: install docker compose
+  become: yes
+  get_url:
+    url: https://github.com/docker/compose/releases/download/1.10.0/docker-compose-Linux-x86_64
+    dest: /usr/local/bin/docker-compose
+
+- name: set docker compose to executable
+  become: yes
+  file:
+    dest: /usr/local/bin/docker-compose
+    mode: a+x
