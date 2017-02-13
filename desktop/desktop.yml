@@ -1,9 +1,12 @@
 ---
 - hosts: localhost
-  tasks:
-    - name: install vim
+  pre_tasks:
+    - name: install basics
       become: yes
-      apt: name=vim
+      apt: name={{ item }}
+      with_items:
+        - curl
+        - vim
   roles:
     - git
     - chrome
@@ -12,3 +15,4 @@
     - autojump
     - clojure
     - elixir
+    - nodejs
