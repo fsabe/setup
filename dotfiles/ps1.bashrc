@@ -26,7 +26,13 @@ function __exit_status {
 }
 
 function __git_info {
-  echo -e "$ired$(__git_ps1 ' %s')$reset"
+  if [[ -z "$(git status -z)" ]]; then
+    state="${igreen}"
+  else
+    state="${ired}"
+  fi
+
+  echo -e "$state$(__git_ps1 ' %s')$reset"
 }
 
 function set_ps1 {
