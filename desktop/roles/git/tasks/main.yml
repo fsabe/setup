@@ -2,6 +2,6 @@
 - name: link git config
   file:
     dest: /home/{{ ansible_user_id }}/.gitconfig
-    src: "{{ ansible_env.PWD}}/../dotfiles/.gitconfig"
+    src: "{{ ansible_env.PWD}}/../dotfiles/gitconfig"
     state: link
     force: yes

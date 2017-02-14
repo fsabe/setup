@@ -1,0 +1,26 @@
+---
+- name: configure .bashrc to source .basrc.d/
+  blockinfile:
+    dest: /home/{{ ansible_user_id }}/.bashrc
+    block: |
+      # Source everything under .bashrc.d
+      if [ -d ~/.bashrc.d ]; then
+          for file in $(/bin/ls ~/.bashrc.d/*.bashrc); do
+              . $file;
+          done
+      fi
+
+- name: create .bashrc.d/ directory
+  file:
+    dest: /home/{{ ansible_user_id }}/.bashrc.d
+    state: directory
+
+- name: link bashrc files
+  file:
+    dest: /home/{{ ansible_user_id }}/.bashrc.d/{{ item }}.bashrc
+    src: "{{ ansible_env.PWD}}/../dotfiles/{{ item }}.bashrc"
+    state: link
+  with_items:
+    - env
+    - ps1
+    - aliases

@@ -10,6 +10,7 @@
         - jq
         - python-pip
   roles:
+    - dotfiles
     - git
     - chrome
     - sublime
