@@ -3,3 +3,8 @@
   become: yes
   apt:
     deb: https://download.sublimetext.com/sublime-text_build-3126_amd64.deb
+
+- name: install package control
+  get_url:
+    url: https://packagecontrol.io/Package%20Control.sublime-package
+    dest: /home/{{ ansible_user_id }}/.config/sublime-text-3/Installed Packages/Package Control.sublime-package
