@@ -1,0 +1,5 @@
+---
+- name: install
+  become: yes
+  apt:
+    deb: https://atom.io/download/deb
