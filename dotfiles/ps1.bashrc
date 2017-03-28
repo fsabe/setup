@@ -39,4 +39,4 @@ function set_ps1 {
   PS1="$(__exit_status)$iblack\u $white\w$(__git_info) $ipurple\$ $reset"
 }
 
-PROMPT_COMMAND=set_ps1
+export PROMPT_COMMAND="${PROMPT_COMMAND:+$PROMPT_COMMAND ;} set_ps1"
