@@ -8,6 +8,7 @@
         - curl
         - vim
         - jq
+        - atool
         - python-pip
   roles:
     - dotfiles
