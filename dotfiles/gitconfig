@@ -6,6 +6,7 @@
 	ci = commit
 	co = checkout
 	st = status
+	posh = push --force-with-lease
 [core]
 	editor = vi
 [push]
