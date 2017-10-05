@@ -5,20 +5,18 @@
       become: yes
       apt: name={{ item }}
       with_items:
-        - curl
-        - vim
-        - jq
         - atool
+        - curl
+        - fonts-firacode
+        - jq
         - python-pip
+        - vim
   roles:
     - dotfiles
     - git
     - chrome
-    - sublime
-    - emacs
     - docker
     - autojump
     - clojure
     - elixir
     - nodejs
-    - atom
